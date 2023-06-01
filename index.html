@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hacked Hogwarts</title>
+  </head>
+  <body class="body">
+    <header id="banner">
+      <h1>Hogwarts Student List</h1>
+    </header>
+    <main>
+      <div class="content_block">
+        <h2>Options</h2>
+        <section id="options">
+          <div class="collapse__mobile">
+            <button class="collapsible hidden"><span>Click here for Filters</span><span class="collapseSpan">&#8249;</span></button>
+            <div class="collapse__mobile__content__inner__section">
+              <article id="filter">
+                <h4>Filters</h4>
+                <select name="filter" id="filter__container" class="filter__select">
+                  <option label="All students" data-type="all" value="all" class="filter_option"></option>
+                  <optgroup label="Houses">
+                    <option label="Ravenclaw" data-type="house" value="Ravenclaw" class="filter_option"></option>
+                    <option label="Hufflepuff" data-type="house" value="Hufflepuff" class="filter_option"></option>
+                    <option label="Gryffindor" data-type="house" value="Gryffindor" class="filter_option"></option>
+                    <option label="Slytherin" data-type="house" value="Slytherin" class="filter_option"></option>
+                  </optgroup>
+                  <optgroup label="Blood type">
+                    <option label="Muggle" data-type="blood" value="Muggle" class="filter__option"></option>
+                    <option label="Halfblood" data-type="blood" value="Half" class="filter__option"></option>
+                    <option label="Pureblood" data-type="blood" value="Pure" class="filter__option"></option>
+                  </optgroup>
+                  <optgroup label="Perfect">
+                    <option label="Perfect Students" data-type="perfect" value="isperfect" class="filter__option"></option>
+                    <option label="Imperfect Students" data-type="perfect" value="notperfect" class="filter__option"></option>
+                  </optgroup>
+                  <optgroup label="Inquisitorial Squad">
+                    <option label="Students part of the Inquisitorial Squad" data-type="inquisitorial" value="isinq" class="filter__option"></option>
+                    <option label="Students out of the Inquisitorial Squad" data-type="inquisitorial" value="notinq" class="filter__option"></option>
+                  </optgroup>
+                </select>
+              </article>
+              <div class="top-button-container">
+                <h4>Show expelled students?</h4>
+                <div class="button-container button-container--expelled">
+                  <button class="button-button button--expelled"></button>
+                  <span class="button-slider"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <article id="student-number">
+            <h4 class="student-number__header"><span class="student-number__header--title">No. of students: </span><span class="student-number__header--number"></span></h4>
+            <h4 class="student-number__header second hidden"><span class="expelled-number__header--title"> (Expelled students: </span><span class="student-expelled-number__header--number"></span>)</h4>
+            <br />
+            <div id="student-houses__container">
+              <article class="student-house__container gryffindor">
+                <div class="student-house">
+                  <h4>Gryffindor</h4>
+                  <p class="student-house__text">Students: <span class="student-house__number"></span></p>
+                </div>
+              </article>
+              <article class="student-house__container hufflepuff">
+                <div class="student-house">
+                  <h4>Hufflepuff</h4>
+                  <p class="student-house__text">Students: <span class="student-house__number"></span></p>
+                </div>
+              </article>
+              <article class="student-house__container ravenclaw">
+                <div class="student-house">
+                  <h4>Ravenclaw</h4>
+                  <p class="student-house__text">Students: <span class="student-house__number"></span></p>
+                </div>
+              </article>
+              <article class="student-house__container slytherin">
+                <div class="student-house">
+                  <h4>Slytherin</h4>
+                  <p class="student-house__text">Students: <span class="student-house__number"></span></p>
+                </div>
+              </article>
+            </div>
+          </article>
+        </section>
+      </div>
+      <div class="content_block">
+        <h2>Students Overview</h2>
+        <h4>Sort by</h4>
+        <div id="sort__container">
+          <select name="sort" id="sort__inner__container">
+            <option label="All students" data-action="sort" data-sort="all" data-sort-direction="asc" class="sort_option"></option>
+            <option label="House" data-action="sort" data-sort="house" data-sort-direction="asc" class="sort__option"></option>
+            <option label="First name" data-action="sort" data-sort="firstname" data-sort-direction="asc" class="sort__option"></option>
+            <option label="Last name" data-action="sort" data-sort="lastname" data-sort-direction="asc" class="sort__option"></option>
+            <option label="Blood status" data-action="sort" data-sort="blood" data-sort-direction="asc" class="sort__option"></option>
+            <option label="Perfect Students" data-action="sort" data-sort="perfect" data-sort-direction="asc" class="sort__option"></option>
+            <option label="Inquisitorial status" data-action="sort" data-sort="inquisitorial" data-sort-direction="asc" class="sort__option"></option>
+          </select>
+        </div>
+        <p></p>
+        <div class="search-div">
+          <input type="text" name="" id="searchbar" placeholder="Search for students" />
+          <div class="search-buttons">
+            <button id="search-btn">Search</button>
+            <button id="clear-search-input">Clear</button>
+            <button id="clear-search-btn">Get full List</button>
+          </div>
+        </div>
+        <section id="student-display__container"></section>
+      </div>
+    </main>
+
+    <div id="popUp" class="hidden">
+      <article>
+        <div class="close">X</div>
+        <div class="popImages">
+          <div class="pop-image-container">
+            <img class="pop-image-student" src="images/abbott_h.png" alt="" />
+            <img class="pop-image-housecrest" src="images/gryffindor_crest.svg" alt="" />
+          </div>
+          <div class="top-button-container">
+            <span>Expell student?</span>
+            <div class="button-container button-container--pop-expelled">
+              <button class="button-button button--pop-expelled"></button>
+              <span class="button-slider"></span>
+            </div>
+          </div>
+        </div>
+        <div class="popText">
+          <div class="pop-names">
+            <h2 class="pop-fullname"></h2>
+            <p>First name: <span class="pop-firstname"></span></p>
+            <p>Middle name: <span class="pop-middlename"></span></p>
+            <p>Last name: <span class="pop-lastname"></span></p>
+            <p>Nick name: <span class="pop-nickname"></span></p>
+            <p>Blood status: <span class="pop-blood"></span></p>
+            <p>Gender: <span class="pop-gender"></span></p>
+          </div>
+          <div class="pop-tasks">
+            <h2>Student info</h2>
+            <div class="pop-perfect__container">
+              <p>Perfect status: <span class="pop-perfect"></span></p>
+              <div class="top-button-container">
+                <span class="">Change to perfect</span>
+                <div class="button-container button-container--perfect">
+                  <button class="button-button button--perfect"></button>
+                  <span class="button-slider"></span>
+                </div>
+              </div>
+            </div>
+            <div class="pop-inquisitorial__container hidden">
+              <p>Inquisitorial status: <span class="pop-inquisitorial"></span></p>
+              <div class="top-button-container">
+                <span class="">Toggle to set inquisitorial status</span>
+                <div class="button-container button-container--inq">
+                  <button class="button-button button--pop-inq"></button>
+                  <span class="button-slider"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+   
+    <div id="remove" class="hidden">
+      <article class="perfect_container">
+        <h3><span class="ext-pref"></span> is already a perfect.</h3>
+        <button class="remove-new-perf-but">Don't add <span class="new-pref"></span> as perfect.</button>
+        <button class="remove-ext-perf-but">Remove <span class="ext-pref"></span> as perfect.</button>
+      </article>
+    </div>
+ 
+    <div id="expell" class="hidden">
+      <article class="expell_container">
+        <h3>
+          You are about to expell <span class="expell-name"></span>. Do you want to proceed?<br />
+          <b>WARNING: You cannot un-expell a student.</b>
+        </h3>
+        <button class="expell-student-btn">EXPELL<span class="expell-name"></span>!</button>
+        <button class="unexpell-button">No, I don't want to expell.</button>
+      </article>
+    </div>
+
+    <div id="hackerModal" class="hidden">
+      <article>
+        <p>Watch out!!!</p>
+      </article>
+    </div>
+
+    <template id="student">
+      <article id="student__card">
+        <h4 class="expellText">EXPELLED</h4>
+        <div class="student__card__img--container">
+          <img src="" alt="" class="student__card__img" />
+          <img src="images/expelled.svg" alt="" class="student__card__img expellOverlay" />
+        </div>
+        <h4 class="student__card__name"></h4>
+
+        <div class="student__card__info">
+          <p><span>Blood status:</span><span class="blood">test</span></p>
+          <p><span>Perfect status:</span><span class="perfect">test</span></p>
+          <p><span>Inquisitorial status:</span><span class="inquisitorial">test</span></p>
+        </div>
+      </article>
+    </template>
+    <script src="script.js"></script>
+  </body>
+</html>
